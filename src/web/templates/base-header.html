@@ -64,17 +64,17 @@
          <div class="navbar-collapse navbar-right collapse">
            <ul class="nav navbar-nav navigation-nav">
             {% if data['loggedin'] == False %}
+              <li class="{{ 'active' if data['active'] == 'features' }}">
+                <a href="/#features">Why Runbook?</a>
+              </li>
               <li class="{{ 'active' if data['active'] == 'pricing' }}">
                 <a href="/pages/pricing">Pricing</a>
               </li>
-              <li class="{{ 'active' if data['active'] == 'features' }}">
-                <a href="/#features">Features</a>
+              <li>
+                <a href="{{ url_for('user.login_page') }}" class="{{ 'active' if data['active'] == 'login' }}">Login</a>
               </li>
               <li>
-                <a href="{{ url_for('user.login_page') }}" class="btn btn-action">Sign In</a>
-              </li>
-              <li>
-                <a href="{{ url_for('user.signup') }}" class="btn btn-action">Sign Up</a>
+                <a href="{{ url_for('user.signup') }}" class="btn btn-action">Get Started</a>
               </li>
             {% else %}
 {% if data['url'] == '/dashboard' %}
