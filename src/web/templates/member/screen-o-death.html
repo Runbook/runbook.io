@@ -1,0 +1,46 @@
+{% include 'base-header.html' %}
+
+<div class="container">
+  <div class="row">
+    <!-- content -->
+        {% if data['mons'] %}
+      <div class="page-header">
+        <h1><i class="fa fa-book fa-1x"></i> Runbooks</h1>
+      </div>
+      <div class="row">
+      <div class="col-md-6">
+        <div class="alert alert-success">
+          <p class="text-center" style="font-size: 5em">{{ data['monstats']['true'] }} True</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="alert alert-danger">
+          <p class="text-center" style="font-size: 5em">{{ data['monstats']['false'] }} False</p>
+        </div>
+      </div>
+      </div>
+          <!-- Start Tab -->
+              {% if data['upgraded'] %}
+              {% include 'forms/addpacks.html' %}
+              {% else %}
+              {% include 'forms/stripe.html' %}
+              {% endif %}
+        {% include 'member/monitors.html' %}
+{% else %}
+              {% if data['upgraded'] %}
+<div class="col-md-12">
+<div class="well">
+  <p class="lead">Welcome! It looks like you haven't created any Runbooks yet.</p>
+  <a href="/dashboard/monitors" class="btn btn-primary">Create a Monitor</a> <a href="/dashboard/monitors" class="btn btn-primary">Create a Reaction</a>
+</div>
+</div>
+              {% else %}
+              {% include 'forms/stripe-new.html' %}
+              {% endif %}
+{% endif %}
+  
+  </div> <!-- row -->
+</div> <!-- container -->
+
+
+{% include 'dash-footer.html' %}

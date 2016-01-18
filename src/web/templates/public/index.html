@@ -21,6 +21,11 @@
       <li>If <b>HTTP: GET</b> is <b>True</b> then <b>HTTP: POST</b></li>
       <li>If <b>TCP: Port</b> is <b>False</b> then <b>Commando.io: Execute Recipe</b></li>
       <li>If <b>CloudFlare: HTTP Status Codes</b> is <b>False</b> then <b>PagerDuty: Create Incident</b></li>
+      <li>If <b>HTTP: GET</b> is <b>False</b> then <b>Linux: Restart Service</b></li>
+      <li>If <b>File System Usage</b> is <b>False</b> then <b>Execute Shell Command</b></li>
+      <li>If <b>Memory Free</b> is <b>False</b> then <b>DigitalOcean: Create Server</b></li>
+      <li>If <b>Docker Container</b> is <b>False</b> then <b>Execute Shell Command</b></li>
+      <li>If <b>CPU Usage</b> is <b>False</b> then <b>Docker: Restart Container</b></li>
       </ul>
     </h2>
     <center>
@@ -61,7 +66,7 @@
               <p><small class="text-muted"><i class="fa fa-clock-o"></i> 5 seconds after impact</small></p>
             </div>
             <div class="timeline-body">
-              <p align="left">Runbook watches over your environment with custom monitors that detect when something goes wrong. These can be anything from Slack WebHooks to a TCP connection on a custom port.</p>
+              <p align="left">Runbook watches over your environment with custom monitors that detect when something goes wrong. Whether you need to monitor a 3rd party service, or the health of your infrastructure we have monitors that can fit your needs.</p>
               <br>
               <a href="/pages/monitors" class="btn btn-action btn-block" role="button">All Monitors</a>
             </div>
@@ -105,7 +110,7 @@
     <div class="row hidden-md hidden-lg">
         <div class="well">
               <i class="fa fa-heartbeat fa-5x"></i>
-              <p align="left">Runbook watches over your environment with custom monitors that detect when something goes wrong. These can be anything from Slack WebHooks to a TCP connection on a custom port.</p>
+              <p align="left">Runbook watches over your environment with custom monitors that detect when something goes wrong. Whether you need to monitor a 3rd party service, or the health of your infrastructure we have monitors that can fit your needs.</p>
               <br>
               <a href="/pages/monitors" class="btn btn-action btn-block" role="button">All Monitors</a>
 
