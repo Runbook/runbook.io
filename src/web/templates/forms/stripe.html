@@ -1,0 +1,49 @@
+<div class="well">
+<h2>Get More</h2>
+<p class="lead">Has Runbook prevented your web application from being unavailable? Upgrade now to setup even more Runbooks that save you from having to fix issues at 3 A.M.</p>
+<div align="center">
+<form action="/dashboard/mod-subscription" method="post" id="subscribe-form" target="_self" class="form-horizontal" role="form">
+<div class="form-group">
+<div class="input-group">
+  <select class="plan-select" id="plan" name="plan">
+    {% if data['acttype'] == 'Promotional' %}
+    <optgroup label="Promotional Plans">
+    <option value="pro_orig_yearly">Annual Legacy Subscription - $9/runbook</option>
+    <option value="pro_orig_monthly">Monthly Legacy Subscription - $1/runbook</option>
+    </optgroup>
+    {% endif %}
+    <optgroup label="Yearly Plans">
+    <option value="proplus_yearly_2" selected>Annual ProPlus Subscription - $89.99/runbook</option>
+    <option value="pro_yearly_2">Annual Pro Subscription - $49.99/runbook</option>
+    </optgroup>
+    <optgroup label="Monthly Plans">
+    <option value="proplus_monthly_2">Monthly ProPlus Subscription - $8.99/runbook</option>
+    <option value="pro_monthly2">Monthly Pro Subscription - $4.99/runbook</option>
+    </optgroup>
+  </select>
+  <button class="btn btn-primary" id="customButton">Select Plan</button>
+</div>
+</div>
+</form>
+<p class="info">Don't worry, you won't be charged until after your <p>30 day Free Trial</p> and you can cancel at any time. So why not click the button above?</p>
+</div>
+</div>
+ <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+<script>
+    $('#customButton').click(function(){
+      var token = function(res){
+        var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+        $('form').append($input).submit();
+      };
+
+      StripeCheckout.open({
+        key:         '{{ data['stripe_pubkey'] }}',
+        name:        'Runbook',
+        description: 'Unlock more features',
+        panelLabel:  'Upgrade',
+        token:       token
+      });
+
+      return false;
+    });
+  </script>
