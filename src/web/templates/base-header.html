@@ -41,6 +41,16 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <!-- MailChimp Tracker -->
+    <script type="text/javascript">
+      var $mcGoal = {'settings':{'uuid':'91f9be395ded0611313187a30','dc':'us3'}};
+      (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+      })(); 
+    </script>
+    <!-- End Tracker -->
     {% for item in data['js_header'] %}
         {% include item %}
     {% endfor %}
