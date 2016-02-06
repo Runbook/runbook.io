@@ -113,6 +113,10 @@ body {
   -o-border-radius: 10px;
 }
 
+.slick-header {
+  display: none;
+}
+
 .btn.btn-action {
 	padding: 8px 15px;
 	margin: 5px;
